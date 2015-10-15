@@ -1,6 +1,5 @@
 import {inject, customAttribute} from 'aurelia-framework';
 import {componentHandler} from 'google/material-design-lite';
-import $ from 'jquery';
 
 let mdlTypes = {
     button: {
@@ -74,22 +73,25 @@ let mdlTypes = {
 
 }
 
-function manageRipple(element){
-  let classes = $(element).attr('class');
-  if(classes.split(' ').indexOf('mdl-js-ripple-effect') != -1) componentHandler.upgradeElement(element, "MaterialRipple");
-  let elts = $(element).find(".mdl-js-ripple-effect").get();
-  for(let elt of elts) componentHandler.upgradeElement(elt, "MaterialRipple");
+function manageRipple(element) {
+    if (element.classList.contains('mdl-js-ripple-effect')) {
+        componentHandler.upgradeElement(element, 'MaterialRipple');
+    }
+    var elements = element.querySelectorAll('.mdl-js-ripple-effect');
+    for (let el of elements) {
+        componentHandler.upgradeElement(el, 'MaterialRipple');
+    }
 }
 
-
-function upgradeElement(element, type){
-  let {fct=[], html, js=[]} = (mdlTypes[type] || {});
-
-  if(html) $(element).addClass(html.join(' '));
-
-  for(let type of js) componentHandler.upgradeElement(element, type);
-
-  for(let f of fct) f(element); 
+function upgradeElement(element, type) {
+    let {fct=[], html, js=[]} = (mdlTypes[type] || {});
+    if (html) {
+        for (let h of html) {
+             element.classList.add(h);
+        }
+    }
+    for (let type of js) componentHandler.upgradeElement(element, type);
+    for (let f of fct) f(element);
 }
 
 @inject(Element)
