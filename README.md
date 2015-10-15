@@ -1,7 +1,7 @@
 # aurelia-material
 
 Aurelia wrapper for [Material Design Lite](http://www.getmdl.io).
-
+Forked with less jQuery.. :-)
 
 [Material Design Lite](http://www.getmdl.io) has been designed for static html sites. To use it on dynamic ones, we have to register explictly new DOM elements (see [MDL](http://www.getmdl.io/started/index.html#dynamic))
 
@@ -31,7 +31,7 @@ You will write in your views:
 
 And that's all...
 
-`mdl` values are : 
+`mdl` values are :
 
 ```
 [ 'button',
@@ -67,7 +67,7 @@ Some MDL elements are not in the list because we don't have to register them, so
   <body aurelia-app="main">
   ...
 ```
-  
+
 3. Update  `main.js` in your `src` folder with following content:
 
   ```javascript
@@ -81,10 +81,10 @@ Some MDL elements are not in the list because we don't have to register them, so
     aurelia.start().then(a => a.setRoot());
   }
    ```
-  
+
 4. Include material design css in your `index.html`
-  
-  
+
+
   ```html
       <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
 ```
@@ -92,4 +92,3 @@ Some MDL elements are not in the list because we don't have to register them, so
 
 
 See online [Demo](http://redpelicans.github.io/aurelia-material-sample/)
-  
