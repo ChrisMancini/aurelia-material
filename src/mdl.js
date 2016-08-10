@@ -1,5 +1,5 @@
 import {inject, customAttribute} from 'aurelia-framework';
-import {componentHandler} from 'google/material-design-lite';
+import {componentHandler} from 'material-design-lite';
 
 let mdlTypes = {
     button: {
