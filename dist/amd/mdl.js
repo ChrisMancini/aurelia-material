@@ -1,4 +1,4 @@
-define(['exports', 'aurelia-framework', 'google/material-design-lite'], function (exports, _aureliaFramework, _googleMaterialDesignLite) {
+define(['exports', 'aurelia-framework', 'material-design-lite'], function (exports, _aureliaFramework, _materialDesignLite) {
     'use strict';
 
     Object.defineProperty(exports, '__esModule', {
@@ -83,7 +83,7 @@ define(['exports', 'aurelia-framework', 'google/material-design-lite'], function
 
     function manageRipple(element) {
         if (element.classList.contains('mdl-js-ripple-effect')) {
-            _googleMaterialDesignLite.componentHandler.upgradeElement(element, 'MaterialRipple');
+            _materialDesignLite.componentHandler.upgradeElement(element, 'MaterialRipple');
         }
         var elements = element.querySelectorAll('.mdl-js-ripple-effect');
         var _iteratorNormalCompletion = true;
@@ -94,7 +94,7 @@ define(['exports', 'aurelia-framework', 'google/material-design-lite'], function
             for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var el = _step.value;
 
-                _googleMaterialDesignLite.componentHandler.upgradeElement(el, 'MaterialRipple');
+                _materialDesignLite.componentHandler.upgradeElement(el, 'MaterialRipple');
             }
         } catch (err) {
             _didIteratorError = true;
@@ -154,7 +154,7 @@ define(['exports', 'aurelia-framework', 'google/material-design-lite'], function
         try {
             for (var _iterator3 = js[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                 var _type = _step3.value;
-                _googleMaterialDesignLite.componentHandler.upgradeElement(element, _type);
+                _materialDesignLite.componentHandler.upgradeElement(element, _type);
             }
         } catch (err) {
             _didIteratorError3 = true;
