@@ -3,6 +3,7 @@ var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var babel = require('gulp-babel');
 var changed = require('gulp-changed');
+var assign = Object.assign || require('object.assign');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
@@ -27,6 +28,32 @@ var compilerOptions = {
   ]
 };
 
+var compilerOptionsForAMD = {
+  modules: 'system',
+  moduleIds: false,
+  comments: false,
+  compact: false,
+  stage:2,
+  optional: [
+    "es7.decorators",
+    "es7.classProperties"
+  ]
+};
+
+gulp.task('build-amd', ['build-html-amd'], function () {
+  return gulp.src(paths.source)
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(babel(assign({}, compilerOptions, {modules:'amd'})))
+    .pipe(sourcemaps.write('.', { includeContent: true}))
+    .pipe(gulp.dest(paths.dist + '/amd'));
+});
+
+gulp.task('build-html-amd', function () {
+  return gulp.src(paths.html)
+    .pipe(changed(paths.dist, {extension: '.html'}))
+    .pipe(gulp.dest(paths.dist + '/amd'));
+});
 
 gulp.task('build-client', function () {
   return gulp.src(paths.source)

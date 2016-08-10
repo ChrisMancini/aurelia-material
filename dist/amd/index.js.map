@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;AAAO,WAAS,SAAS,CAAC,OAAO,EAAC;AAChC,WAAO,CAAC,eAAe,CAAC,OAAO,CAAC,CAAC;GAClC","file":"index.js","sourcesContent":["export function configure(aurelia){\r\n  aurelia.globalResources('./mdl');\r\n}\r\n\r\n\r\n"],"sourceRoot":"/source/"}
