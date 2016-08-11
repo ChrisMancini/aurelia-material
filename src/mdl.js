@@ -79,11 +79,14 @@ let mdlTypes = {
 
 function manageRipple(element) {
     if (element.classList.contains('mdl-js-ripple-effect')) {
-        this.componentHandler.upgradeElement(element, 'MaterialRipple');
+        componentHandler.upgradeElement(element, 'MaterialRipple');
     }
     var elements = element.querySelectorAll('.mdl-js-ripple-effect');
-    for (let el of elements) {
-        this.componentHandler.upgradeElement(el, 'MaterialRipple');
+
+    if (elements.length > 0) {
+      for (let el of elements) {
+          componentHandler.upgradeElement(el, 'MaterialRipple');
+      }
     }
 }
 
@@ -95,7 +98,7 @@ function upgradeElement(element, type) {
         }
     }
     for (let t of js) {
-      this.componentHandler.upgradeElement(element, t);
+      componentHandler.upgradeElement(element, t);
     }
     for (let f of fct) f(element);
 }
