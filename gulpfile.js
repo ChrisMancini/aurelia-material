@@ -76,6 +76,7 @@ gulp.task('build', function(callback) {
   return runSequence(
     'clean',
     ['build-client', 'build-html'],
+    ['build-amd', 'build-html-amd'],
     callback
   );
 });

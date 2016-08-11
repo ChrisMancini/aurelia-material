@@ -56,7 +56,7 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
             html: ["mdl-spinner", "mdl-js-spinner"]
         },
         badge: {
-            html: ["mdl-bagde"]
+            html: ["mdl-badge"]
         },
         "switch": {
             js: ['MaterialSwitch'],
@@ -77,13 +77,17 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
             js: ['MaterialCheckbox'],
             html: ["mdl-checkbox", "mdl-js-checkbox"],
             fct: [manageRipple]
+        },
+        "snackbar": {
+            js: ['MaterialSnackbar'],
+            html: ["mdl-js-snackbar", "mdl-snackbar"],
+            fct: [manageRipple]
         }
-
     };
 
     function manageRipple(element) {
         if (element.classList.contains('mdl-js-ripple-effect')) {
-            _materialDesignLite.componentHandler.upgradeElement(element, 'MaterialRipple');
+            this.componentHandler.upgradeElement(element, 'MaterialRipple');
         }
         var elements = element.querySelectorAll('.mdl-js-ripple-effect');
         var _iteratorNormalCompletion = true;
@@ -94,7 +98,7 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
             for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var el = _step.value;
 
-                _materialDesignLite.componentHandler.upgradeElement(el, 'MaterialRipple');
+                this.componentHandler.upgradeElement(el, 'MaterialRipple');
             }
         } catch (err) {
             _didIteratorError = true;
@@ -153,8 +157,9 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
 
         try {
             for (var _iterator3 = js[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var _type = _step3.value;
-                _materialDesignLite.componentHandler.upgradeElement(element, _type);
+                var t = _step3.value;
+
+                this.componentHandler.upgradeElement(element, t);
             }
         } catch (err) {
             _didIteratorError3 = true;
@@ -196,14 +201,14 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
         }
     }
 
-    var MDLCustomAttribut = (function () {
-        function MDLCustomAttribut(element) {
-            _classCallCheck(this, _MDLCustomAttribut);
+    var MDLCustomAttribute = (function () {
+        function MDLCustomAttribute(element) {
+            _classCallCheck(this, _MDLCustomAttribute);
 
             this.element = element;
         }
 
-        _createClass(MDLCustomAttribut, [{
+        _createClass(MDLCustomAttribute, [{
             key: 'attached',
             value: function attached() {
                 //console.log("mdl attached: " + this.value);
@@ -211,12 +216,12 @@ define(['exports', 'aurelia-framework', 'material-design-lite'], function (expor
             }
         }]);
 
-        var _MDLCustomAttribut = MDLCustomAttribut;
-        MDLCustomAttribut = (0, _aureliaFramework.customAttribute)('mdl')(MDLCustomAttribut) || MDLCustomAttribut;
-        MDLCustomAttribut = (0, _aureliaFramework.inject)(Element)(MDLCustomAttribut) || MDLCustomAttribut;
-        return MDLCustomAttribut;
+        var _MDLCustomAttribute = MDLCustomAttribute;
+        MDLCustomAttribute = (0, _aureliaFramework.customAttribute)('mdl')(MDLCustomAttribute) || MDLCustomAttribute;
+        MDLCustomAttribute = (0, _aureliaFramework.inject)(Element)(MDLCustomAttribute) || MDLCustomAttribute;
+        return MDLCustomAttribute;
     })();
 
-    exports.MDLCustomAttribut = MDLCustomAttribut;
+    exports.MDLCustomAttribute = MDLCustomAttribute;
 });
 //# sourceMappingURL=mdl.js.map

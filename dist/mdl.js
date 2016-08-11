@@ -10,7 +10,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _aureliaFramework = require('aurelia-framework');
 
-var _googleMaterialDesignLite = require('google/material-design-lite');
+var _materialDesignLite = require('material-design-lite');
 
 var mdlTypes = {
     button: {
@@ -59,7 +59,7 @@ var mdlTypes = {
         html: ["mdl-spinner", "mdl-js-spinner"]
     },
     badge: {
-        html: ["mdl-bagde"]
+        html: ["mdl-badge"]
     },
     "switch": {
         js: ['MaterialSwitch'],
@@ -80,13 +80,17 @@ var mdlTypes = {
         js: ['MaterialCheckbox'],
         html: ["mdl-checkbox", "mdl-js-checkbox"],
         fct: [manageRipple]
+    },
+    "snackbar": {
+        js: ['MaterialSnackbar'],
+        html: ["mdl-js-snackbar", "mdl-snackbar"],
+        fct: [manageRipple]
     }
-
 };
 
 function manageRipple(element) {
     if (element.classList.contains('mdl-js-ripple-effect')) {
-        _googleMaterialDesignLite.componentHandler.upgradeElement(element, 'MaterialRipple');
+        this.componentHandler.upgradeElement(element, 'MaterialRipple');
     }
     var elements = element.querySelectorAll('.mdl-js-ripple-effect');
     var _iteratorNormalCompletion = true;
@@ -97,7 +101,7 @@ function manageRipple(element) {
         for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var el = _step.value;
 
-            _googleMaterialDesignLite.componentHandler.upgradeElement(el, 'MaterialRipple');
+            this.componentHandler.upgradeElement(el, 'MaterialRipple');
         }
     } catch (err) {
         _didIteratorError = true;
@@ -156,8 +160,9 @@ function upgradeElement(element, type) {
 
     try {
         for (var _iterator3 = js[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var _type = _step3.value;
-            _googleMaterialDesignLite.componentHandler.upgradeElement(element, _type);
+            var t = _step3.value;
+
+            this.componentHandler.upgradeElement(element, t);
         }
     } catch (err) {
         _didIteratorError3 = true;
@@ -199,14 +204,14 @@ function upgradeElement(element, type) {
     }
 }
 
-var MDLCustomAttribut = (function () {
-    function MDLCustomAttribut(element) {
-        _classCallCheck(this, _MDLCustomAttribut);
+var MDLCustomAttribute = (function () {
+    function MDLCustomAttribute(element) {
+        _classCallCheck(this, _MDLCustomAttribute);
 
         this.element = element;
     }
 
-    _createClass(MDLCustomAttribut, [{
+    _createClass(MDLCustomAttribute, [{
         key: 'attached',
         value: function attached() {
             //console.log("mdl attached: " + this.value);
@@ -214,11 +219,11 @@ var MDLCustomAttribut = (function () {
         }
     }]);
 
-    var _MDLCustomAttribut = MDLCustomAttribut;
-    MDLCustomAttribut = (0, _aureliaFramework.customAttribute)('mdl')(MDLCustomAttribut) || MDLCustomAttribut;
-    MDLCustomAttribut = (0, _aureliaFramework.inject)(Element)(MDLCustomAttribut) || MDLCustomAttribut;
-    return MDLCustomAttribut;
+    var _MDLCustomAttribute = MDLCustomAttribute;
+    MDLCustomAttribute = (0, _aureliaFramework.customAttribute)('mdl')(MDLCustomAttribute) || MDLCustomAttribute;
+    MDLCustomAttribute = (0, _aureliaFramework.inject)(Element)(MDLCustomAttribute) || MDLCustomAttribute;
+    return MDLCustomAttribute;
 })();
 
-exports.MDLCustomAttribut = MDLCustomAttribut;
+exports.MDLCustomAttribute = MDLCustomAttribute;
 //# sourceMappingURL=mdl.js.map

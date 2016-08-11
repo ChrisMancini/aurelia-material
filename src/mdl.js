@@ -48,7 +48,7 @@ let mdlTypes = {
      , html: ["mdl-spinner", "mdl-js-spinner"]
   }
   , badge: {
-     html: ["mdl-bagde"]
+     html: ["mdl-badge"]
   }
   , "switch": {
        js: ['MaterialSwitch']
@@ -69,17 +69,21 @@ let mdlTypes = {
        js: ['MaterialCheckbox']
      , html: ["mdl-checkbox", "mdl-js-checkbox"]
      , fct: [manageRipple]
+  }  
+  , "snackbar": {
+       js: ['MaterialSnackbar']
+     , html: ["mdl-js-snackbar", "mdl-snackbar"]
+     , fct: [manageRipple]
   }
-
 }
 
 function manageRipple(element) {
     if (element.classList.contains('mdl-js-ripple-effect')) {
-        componentHandler.upgradeElement(element, 'MaterialRipple');
+        this.componentHandler.upgradeElement(element, 'MaterialRipple');
     }
     var elements = element.querySelectorAll('.mdl-js-ripple-effect');
     for (let el of elements) {
-        componentHandler.upgradeElement(el, 'MaterialRipple');
+        this.componentHandler.upgradeElement(el, 'MaterialRipple');
     }
 }
 
@@ -90,13 +94,15 @@ function upgradeElement(element, type) {
              element.classList.add(h);
         }
     }
-    for (let type of js) componentHandler.upgradeElement(element, type);
+    for (let t of js) {
+      this.componentHandler.upgradeElement(element, t);
+    }
     for (let f of fct) f(element);
 }
 
 @inject(Element)
 @customAttribute('mdl')
-export class MDLCustomAttribut {
+export class MDLCustomAttribute {
 
     constructor(element) {
         this.element = element;
