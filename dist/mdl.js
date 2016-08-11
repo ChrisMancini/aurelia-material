@@ -90,30 +90,33 @@ var mdlTypes = {
 
 function manageRipple(element) {
     if (element.classList.contains('mdl-js-ripple-effect')) {
-        this.componentHandler.upgradeElement(element, 'MaterialRipple');
+        _materialDesignLite.componentHandler.upgradeElement(element, 'MaterialRipple');
     }
     var elements = element.querySelectorAll('.mdl-js-ripple-effect');
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
 
-    try {
-        for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var el = _step.value;
+    if (elements.length > 0) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
 
-            this.componentHandler.upgradeElement(el, 'MaterialRipple');
-        }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
         try {
-            if (!_iteratorNormalCompletion && _iterator['return']) {
-                _iterator['return']();
+            for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var el = _step.value;
+
+                _materialDesignLite.componentHandler.upgradeElement(el, 'MaterialRipple');
             }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
         } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
+            try {
+                if (!_iteratorNormalCompletion && _iterator['return']) {
+                    _iterator['return']();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
             }
         }
     }
@@ -162,7 +165,7 @@ function upgradeElement(element, type) {
         for (var _iterator3 = js[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
             var t = _step3.value;
 
-            this.componentHandler.upgradeElement(element, t);
+            _materialDesignLite.componentHandler.upgradeElement(element, t);
         }
     } catch (err) {
         _didIteratorError3 = true;
